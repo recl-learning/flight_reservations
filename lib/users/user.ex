@@ -3,12 +3,15 @@ defmodule FlightReservations.Users.User do
   @enforce_keys @keys
   defstruct @keys
 
-  def build(%{name: name, email: email, cpf: cpf}) do
-    %__MODULE__{
-      id: UUID.uuid4(),
-      name: name,
-      email: email,
-      cpf: cpf
-    }
+  def build(%{name: name, email: email, cpf: cpf}) when is_bitstring(cpf) do
+    {:ok,
+     %__MODULE__{
+       id: UUID.uuid4(),
+       name: name,
+       email: email,
+       cpf: cpf
+     }}
   end
+
+  def build(_invalid), do: {:error, "Invalid user."}
 end

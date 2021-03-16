@@ -21,8 +21,14 @@ defmodule FlightReservations.Users.UserAgentTest do
     test "should get a user" do
       user = build(:user)
       UserAgent.save(user)
-      returned = UserAgent.get(user.id)
+      {:ok, returned} = UserAgent.get(user.id)
       assert returned == user
+    end
+
+    test "should return an error for unexisting user" do
+      returned = UserAgent.get("not_a_user_id")
+      expected = {:error, "User with id 'not_a_user_id' not found."}
+      assert returned == expected
     end
 
     test "should get all users" do

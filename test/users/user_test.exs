@@ -7,7 +7,7 @@ defmodule FlightReservations.Users.UserTest do
 
   describe "build/1" do
     test "should build a valid user" do
-      returned =
+      {:ok, returned} =
         User.build(%{
           name: "Ricardo",
           email: "ricardo@email.net",
