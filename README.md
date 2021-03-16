@@ -2,6 +2,8 @@
 
 **TODO: Add description**
 
+## Spec
+https://www.notion.so/Desafio-01-Reservas-de-voos-f5fd8814ce904360b2500449143e589e
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
