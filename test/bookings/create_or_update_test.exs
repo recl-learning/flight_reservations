@@ -12,15 +12,16 @@ defmodule FlightReservations.Bookings.CreateOrUpdateTest do
     end
 
     test "should create a valid booking" do
+      user_id = UUID.uuid4()
       payload = %{
         data_completa: NaiveDateTime.new(2021, 6, 6, 0, 0, 0),
         cidade_origem: "Recife",
         cidade_destino: "Belo Horizonte",
-        id_usuario: UUID.uuid4()
+        id_usuario: user_id
       }
 
-      {:ok, returned} = CreateOrUpdate.call(payload)
-      expected = build(:booking, id: returned.id, id_usuario: returned.id_usuario)
+      {:ok, returned} = CreateOrUpdate.call(user_id, payload)
+      expected = build(:booking, id: returned.id, id_usuario: user_id)
       assert returned == expected
     end
 
@@ -32,7 +33,7 @@ defmodule FlightReservations.Bookings.CreateOrUpdateTest do
         id_usuario: nil
       }
 
-      returned = CreateOrUpdate.call(payload)
+      returned = CreateOrUpdate.call(nil, payload)
       expected = {:error, "Invalid Booking."}
       assert returned == expected
     end
