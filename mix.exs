@@ -25,7 +25,8 @@ defmodule FlightReservations.MixProject do
       {:ex_machina, "~> 2.7.0", only: :test},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:uuid, "~> 1.1"},
-      {:decimal, "~> 2.0"}
+      {:decimal, "~> 2.0"},
+      {:date_time_parser, "~> 1.1"}
     ]
   end
 
