@@ -10,7 +10,7 @@ defmodule FlightReservations.Bookings.BookingTest do
     test "should build a valid booking" do
       %User{id: user_id} = build(:user)
 
-      returned =
+      {:ok, returned} =
         Booking.build(%{
           data_completa: NaiveDateTime.new(2021, 6, 6, 0, 0, 0),
           cidade_origem: "Recife",
