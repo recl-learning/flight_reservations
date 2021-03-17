@@ -16,7 +16,7 @@ defmodule FlightReservations.Factory do
   def booking_factory() do
     %Booking{
       id: UUID.uuid4(),
-      data_completa: NaiveDateTime.new(2021, 6, 6, 0, 0, 0),
+      data_completa: NaiveDateTime.new!(2021, 6, 6, 0, 0, 0),
       cidade_origem: "Recife",
       cidade_destino: "Belo Horizonte",
       id_usuario: UUID.uuid4()

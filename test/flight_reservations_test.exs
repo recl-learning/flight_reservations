@@ -48,7 +48,7 @@ defmodule FlightReservationsTest do
         })
 
       params = %{
-        data_completa: NaiveDateTime.new(2021, 6, 6, 0, 0, 0),
+        data_completa: NaiveDateTime.new!(2021, 6, 6, 0, 0, 0),
         cidade_origem: "Recife",
         cidade_destino: "Belo Horizonte",
         id_usuario: user.id
@@ -70,7 +70,7 @@ defmodule FlightReservationsTest do
         })
 
       params = %{
-        data_completa: NaiveDateTime.new(2021, 6, 6, 0, 0, 0),
+        data_completa: NaiveDateTime.new!(2021, 6, 6, 0, 0, 0),
         cidade_origem: "Recife",
         cidade_destino: "Belo Horizonte",
         id_usuario: user.id

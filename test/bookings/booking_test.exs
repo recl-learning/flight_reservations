@@ -12,7 +12,7 @@ defmodule FlightReservations.Bookings.BookingTest do
 
       {:ok, returned} =
         Booking.build(%{
-          data_completa: NaiveDateTime.new(2021, 6, 6, 0, 0, 0),
+          data_completa: NaiveDateTime.new!(2021, 6, 6, 0, 0, 0),
           cidade_origem: "Recife",
           cidade_destino: "Belo Horizonte",
           id_usuario: user_id
