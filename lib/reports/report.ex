@@ -7,6 +7,7 @@ defmodule FlightReservations.Reports.Report do
     |> Enum.map(fn {_k, booking} -> transform_booking(booking) end)
     |> Enum.reduce("", fn line, acc -> line <> acc end)
     File.write!("./reports/report.csv", content)
+    {:ok, "Report generated successfully"}
   end
 
   defp transform_booking(%Booking{} = booking) do

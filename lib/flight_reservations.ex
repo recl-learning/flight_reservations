@@ -3,6 +3,7 @@ defmodule FlightReservations do
   alias FlightReservations.Bookings.BookingAgent
   alias FlightReservations.Users.CreateOrUpdate, as: CreateOrUpdateUser
   alias FlightReservations.Users.UserAgent
+  alias FlightReservations.Reports.Report
 
   def start_agents do
     BookingAgent.start_link()
@@ -20,4 +21,6 @@ defmodule FlightReservations do
   def create_user(params), do: CreateOrUpdateUser.call(params)
 
   def get_user(user_id), do: UserAgent.get(user_id)
+
+  defdelegate generate_report, to: Report, as: :create_report
 end
